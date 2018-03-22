@@ -22,10 +22,9 @@ app.use(bodyParser());
 
 //静态文件管理(因为项目上线时的静态文件是部署在反向代理服务器内，如Ngix，所以需要判断当前运行环境)
 if(!isProduction){
-	const staticFiles=require('./static-files');//静态文件管理
-	app.use(staticFiles('/assets/',__dirname+'/assets'));
+	const staticFiles=require('./middlewares/static-files');//静态文件管理
+	app.use(staticFiles('/public/',__dirname+'/public'));
 }
-
 
 //添加路由
 app.use(routes);
