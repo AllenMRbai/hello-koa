@@ -20,21 +20,26 @@ function addMapping(mapping) {
     }
 }
 
-function addControllers() {
-    var files = fs.readdirSync(path.resolve(rootPath,'controllers'));
-    var js_files = files.filter((f) => {
+function addControllers(filesPath) {
+    let files = fs.readdirSync(filesPath);
+    let js_files = files.filter((f) => {
+        let fPath=path.resolve(filesPath,f);
+        if(fs.statSync(fPath).isDirectory()){
+            addControllers(fPath)     
+        }
         return f.endsWith('.js');
     });
 
-    for (var f of js_files) {
+    for (let f of js_files) {
         //console.log(`process controller: ${f}...`);
-        let mapping = require(path.resolve(rootPath,`controllers/${f}`));
+        let mapping = require(path.resolve(filesPath,f));
         addMapping(mapping);
     }
 }
 
 module.exports = (function () {
-    addControllers();
+    let filesPath=path.resolve(rootPath,'controllers');
+    addControllers(filesPath);
     return router.routes();
 }());
 

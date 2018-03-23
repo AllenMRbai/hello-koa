@@ -1,8 +1,10 @@
 const path=require('path');
 const mime=require('mime');
-const {myfs}=require('../utils/common');
+const {rootPath,myfs}=require('../utils/common');
 
 function staticFiles(url,dir){
+	url= url || '/static/';
+	dir=dir || path.resolve(rootPath,'static');
 	return async (ctx,next)=>{
 		let rpath=ctx.request.path,
 			fpath=path.join(dir,rpath.substring(url.length));
