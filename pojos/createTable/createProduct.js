@@ -15,16 +15,8 @@ function createProduct(){
 			goods_id:123,
 			//产品名称
 			goods_name:"测试产品 产品名称",
-			//产品短名称
-			short_name:"产品短名称",
-			//产品主图
-			thumb_url:"url",
-			//产品副图（我猜的）
-			hd_thumb_url:"url",
 			//市场价格 单位：分
-			market_price:1000,
-			//正常价格 单位：分
-			normal_price:10000
+			market_price:1000
 		});
 	}).then(()=>{
 		//将建表时插入的一行删除
