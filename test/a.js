@@ -1,3 +1,5 @@
+global.count=1;
+console.log('global为',global.count)
 const allen=require('./allen')
 
 
@@ -9,7 +11,8 @@ const b=require('./b')
 
 b.print('a的内部调用b的print方法')
 
+const c=require('./c')
 console.log('loading...')
 setInterval(function(){
     console.log('loading...')
-},10000)
+},100000)

@@ -12,7 +12,9 @@
     "koa-bodyparser": "^4.2.0",
     "koa-router": "^7.4.0",
     "mime": "^2.2.0",
-    "nunjucks": "^3.1.2"
+    "mysql2": "^1.5.3",
+    "nunjucks": "^3.1.2",
+    "sequelize": "^4.37.4"
   },
   "devDependencies": {
     "cross-env": "^5.1.4"

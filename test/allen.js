@@ -4,4 +4,6 @@ let allen={
     hobby:'painting'
 }
 
+console.log(global.count++)
+
 module.exports=allen;
