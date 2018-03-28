@@ -15,6 +15,10 @@ module.exports = {
                 try {
                     await next();
                 } catch (e) {
+                    // 如果是运行错误，就打印到控制台
+                    if(e instanceof Error){
+                        console.error(e);
+                    }
                     // 返回错误:
                     ctx.response.status = 400;
                     ctx.response.type = 'application/json';
